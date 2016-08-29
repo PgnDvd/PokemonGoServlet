@@ -33,6 +33,11 @@ import pokemon.go.enums.PokemonType;
 import pokemon.go.hibernate.model.PokemonEvolution;
 import pokemon.go.hibernate.model.PokemonStatic;
 import pokemon.go.hibernate.util.HibernateUtil;
+import pokemon.go.loader.pokedb.evolutions.LoaderEvolutionsHappiness;
+import pokemon.go.loader.pokedb.evolutions.LoaderEvolutionsLevel;
+import pokemon.go.loader.pokedb.evolutions.LoaderEvolutionsOther;
+import pokemon.go.loader.pokedb.evolutions.LoaderEvolutionsStones;
+import pokemon.go.loader.pokedb.evolutions.LoaderEvolutionsTrade;
 import pokemon.go.model.PokemonMove;
 
 public class LoaderPokeDb {
@@ -47,7 +52,7 @@ public class LoaderPokeDb {
 		int evolutionId = 0;
 		for(PokemonEvolution evolution: allEvolutions){
 			evolution.setId(evolutionId++);
-			HibernateUtil.commit(evolution);
+//			HibernateUtil.commit(evolution);
 		}
 		
 		//		for(pokemonId = 1; pokemonId < 152; pokemonId++){
@@ -119,11 +124,11 @@ public class LoaderPokeDb {
 				//			System.out.println(catchRate);
 			}
 			{
-				for(PokemonEvolution evolution : allEvolutions){
-					if(pokemonId == evolution.getFrom()){
-						evolutions.add(evolution);
-					}
-				}
+//				for(PokemonEvolution evolution : allEvolutions){
+//					if(pokemonId == evolution.getFrom()){
+//						evolutions.add(evolution);
+//					}
+//				}
 			}
 			{
 				String start = "<th>HP</th>";
@@ -292,7 +297,7 @@ public class LoaderPokeDb {
 			//			System.out.println(pokemon);
 
 			//printAsEnum(sprites, pokemon);
-//			HibernateUtil.commit(pokemon);
+			HibernateUtil.commit(pokemon);
 		}
 		HibernateUtil.close();
 	}

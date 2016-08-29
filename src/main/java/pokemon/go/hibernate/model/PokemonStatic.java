@@ -84,10 +84,10 @@ public class PokemonStatic {
 	@Column(name="catchRate", nullable=false)
 	private double catchRate;
 
-	@ElementCollection
-	@CollectionTable(name="Evolutions", joinColumns=@JoinColumn(name="id"))
-	@Column(name="evolutions")
-	private List<PokemonEvolution> evolutions;
+//	@ElementCollection
+//	@CollectionTable(name="Evolutions", joinColumns=@JoinColumn(name="id"))
+//	@Column(name="evolutions")
+//	private List<PokemonEvolution> evolutions;
 
 	@ElementCollection
 	@CollectionTable(name="Sprites", joinColumns=@JoinColumn(name="id"))
@@ -122,7 +122,7 @@ public class PokemonStatic {
 		this.minMaxSpDef = minMaxSpDef;
 		this.minMaxSpeed = minMaxSpeed;
 		this.catchRate = catchRate;
-		this.evolutions = evolutions;
+//		this.evolutions = evolutions;
 		this.sprites = sprites;
 	}
 
@@ -310,13 +310,13 @@ public class PokemonStatic {
 		this.catchRate = catchRate;
 	}
 
-	public List<PokemonEvolution> getEvolutions() {
-		return evolutions;
-	}
-
-	public void setEvolutions(List<PokemonEvolution> evolutions) {
-		this.evolutions = evolutions;
-	}
+//	public List<PokemonEvolution> getEvolutions() {
+//		return evolutions;
+//	}
+//
+//	public void setEvolutions(List<PokemonEvolution> evolutions) {
+//		this.evolutions = evolutions;
+//	}
 
 	public List<String> getSprites() {
 		return sprites;
@@ -334,8 +334,9 @@ public class PokemonStatic {
 				+ maxMaxAttack + ", maxMaxDefense=" + maxMaxDefense + ", maxMaxSpAtk=" + maxMaxSpAtk + ", maxMaxSpDef="
 				+ maxMaxSpDef + ", maxMaxSpeed=" + maxMaxSpeed + ", minMaxHp=" + minMaxHp + ", minMaxAttack="
 				+ minMaxAttack + ", minMaxDefense=" + minMaxDefense + ", minMaxSpAtk=" + minMaxSpAtk + ", minMaxSpDef="
-				+ minMaxSpDef + ", minMaxSpeed=" + minMaxSpeed + ", catchRate=" + catchRate + ", evolutions="
-				+ evolutions + ", sprites=" + sprites + "]";
+				+ minMaxSpDef + ", minMaxSpeed=" + minMaxSpeed + ", catchRate=" + catchRate +
+				//", evolutions="	+ evolutions + //
+				", sprites=" + sprites + "]";
 	}
 
 }

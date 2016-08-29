@@ -1,4 +1,4 @@
-package pokemon.go.loader.pokedb;
+package pokemon.go.loader.pokedb.evolutions;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,11 +10,13 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
+
 import pokemon.go.enums.EvolutionType;
 import pokemon.go.enums.PokemonEnum;
 import pokemon.go.hibernate.model.PokemonEvolution;
 
-public class LoaderEvolutionsHappiness {
+public class LoaderEvolutionsOther {
 	public static void main(String[] args) throws URISyntaxException, IOException {
 		List<PokemonEvolution> evolutions = getEvolutions();
 		for(PokemonEvolution evolution: evolutions){
@@ -23,24 +25,29 @@ public class LoaderEvolutionsHappiness {
 	}
 
 	public static List<PokemonEvolution> getEvolutions() throws URISyntaxException, IOException {
-        File file = new File("src/main/resources/evolutions/evoHappiness.txt");
+		File file = new File("src/main/resources/evolutions/evoOther.txt");
 		List<String> source = Files.readAllLines(file.toPath());
 		List<PokemonEvolution> evolutions = new ArrayList<>();
 		for(String line : source){
 			String[] items = line.split("\t");
-			String name = items[0].toLowerCase().replace("nidoran♀", "nidoranF").replace("nidoran♂", "nidoranM");
+			String name = items[0].toLowerCase().replace(" ", "").replace(".", "");
 			int from = PokemonEnum.valueOf(name).getId();
-			int to = PokemonEnum.valueOf(items[1].toLowerCase()).getId();
-			String condition = null;
-			if(items.length == 3){
-				condition = items[2];
+			String name2 = items[1].toLowerCase().replace(" ", "").replace(".", "");
+			int to = PokemonEnum.valueOf(name2).getId();
+			int level = 0;
+			if(StringUtils.isNotEmpty(items[2])){
+				level = Integer.parseInt(items[2]);
 			}
-			PokemonEvolution evolution = new PokemonEvolution(from, to, EvolutionType.HAPPINESS, 0, null, null, condition);
+			String condition = null;
+			if(items.length == 4){
+				condition = items[3];
+			}
+			PokemonEvolution evolution = new PokemonEvolution(from, to, EvolutionType.OTHER, level, null, null, condition);
 			evolutions.add(evolution);			
-			
-			
 
-			if(items.length > 3){
+
+
+			if(items.length > 4){
 				System.out.println(line);
 				for(String item: items){
 					System.out.println(item);
@@ -48,6 +55,7 @@ public class LoaderEvolutionsHappiness {
 				System.out.println(evolution);
 				throw new RuntimeException();
 			}
+
 		}		
 		return evolutions;
 	}
