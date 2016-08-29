@@ -335,7 +335,7 @@ public class PokemonStatic {
 				+ maxMaxSpDef + ", maxMaxSpeed=" + maxMaxSpeed + ", minMaxHp=" + minMaxHp + ", minMaxAttack="
 				+ minMaxAttack + ", minMaxDefense=" + minMaxDefense + ", minMaxSpAtk=" + minMaxSpAtk + ", minMaxSpDef="
 				+ minMaxSpDef + ", minMaxSpeed=" + minMaxSpeed + ", catchRate=" + catchRate +
-				//", evolutions="	+ evolutions + //
+				//", evolutions="	+ evolutions + 
 				", sprites=" + sprites + "]";
 	}
 

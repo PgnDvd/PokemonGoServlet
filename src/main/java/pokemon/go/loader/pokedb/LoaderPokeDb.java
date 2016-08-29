@@ -52,7 +52,7 @@ public class LoaderPokeDb {
 		int evolutionId = 0;
 		for(PokemonEvolution evolution: allEvolutions){
 			evolution.setId(evolutionId++);
-//			HibernateUtil.commit(evolution);
+			HibernateUtil.commit(evolution);
 		}
 		
 		//		for(pokemonId = 1; pokemonId < 152; pokemonId++){
@@ -124,11 +124,11 @@ public class LoaderPokeDb {
 				//			System.out.println(catchRate);
 			}
 			{
-//				for(PokemonEvolution evolution : allEvolutions){
-//					if(pokemonId == evolution.getFrom()){
-//						evolutions.add(evolution);
-//					}
-//				}
+				for(PokemonEvolution evolution : allEvolutions){
+					if(pokemonId == evolution.getFrom()){
+						evolutions.add(evolution);
+					}
+				}
 			}
 			{
 				String start = "<th>HP</th>";

@@ -19,25 +19,25 @@ public class PokemonEvolution {
 	@Column(name="id", nullable=false, unique=true)
 	private int id;
 
-	@Column
+	@Column(name="ev_from")
 	private int from;
 
-	@Column
+	@Column(name="ev_to")
 	private int to;
 
 	@Enumerated(EnumType.STRING)
 	private EvolutionType type;
 
-	@Column
+	@Column(name="level")
 	private int level;
 
 	@Enumerated(EnumType.STRING)
 	private Stone stone;
 
-	@Column
+	@Column(name="tradingItem")
 	private String tradingItem;
 
-	@Column
+	@Column(name="ev_condition")
 	private String condition;
 	
 
