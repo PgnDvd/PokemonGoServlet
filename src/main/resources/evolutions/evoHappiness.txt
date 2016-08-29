@@ -1,0 +1,16 @@
+Pichu	Pikachu	
+Cleffa	Clefairy	
+Igglybuff	Jigglypuff	
+Golbat	Crobat	
+Chansey	Blissey	
+Eevee	Espeon	Daytime
+Eevee	Umbreon	Nighttime
+Munchlax	Snorlax	
+Togepi	Togetic	
+Azurill	Marill	
+Budew	Roselia	Daytime
+Chingling	Chimecho	Nighttime
+Buneary	Lopunny	
+Riolu	Lucario	Daytime
+Woobat	Swoobat	
+Swadloon	Leavanny

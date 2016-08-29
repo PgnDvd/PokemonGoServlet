@@ -1,0 +1,39 @@
+Pikachu	Raichu	Thunderstone
+Nidorina	Nidoqueen	Moon Stone
+Nidorino	Nidoking	Moon Stone
+Clefairy	Clefable	Moon Stone
+Vulpix	Ninetales	Fire Stone
+Jigglypuff	Wigglytuff	Moon Stone
+Gloom	Vileplume	Leaf Stone
+Gloom	Bellossom	Sun Stone
+Growlithe	Arcanine	Fire Stone
+Poliwhirl	Poliwrath	Water Stone
+Weepinbell	Victreebel	Leaf Stone
+Shellder	Cloyster	Water Stone
+Exeggcute	Exeggutor	Leaf Stone
+Staryu	Starmie	Water Stone
+Eevee	Vaporeon	Water Stone
+Eevee	Jolteon	Thunderstone
+Eevee	Flareon	Fire Stone
+Togetic	Togekiss	Shiny Stone
+Sunkern	Sunflora	Sun Stone
+Murkrow	Honchkrow	Dusk Stone
+Misdreavus	Mismagius	Dusk Stone
+Lombre	Ludicolo	Water Stone
+Nuzleaf	Shiftry	Leaf Stone
+Kirlia	Gallade	Dawn Stone	(Male)
+Skitty	Delcatty	Moon Stone
+Roselia	Roserade	Shiny Stone
+Snorunt	Froslass	Dawn Stone	(Female)
+Pansage	Simisage	Leaf Stone
+Pansear	Simisear	Fire Stone
+Panpour	Simipour	Water Stone
+Munna	Musharna	Moon Stone
+Cottonee	Whimsicott	Sun Stone
+Petilil	Lilligant	Sun Stone
+Minccino	Cinccino	Shiny Stone
+Eelektrik	Eelektross	Thunderstone
+Lampent	Chandelure	Dusk Stone
+Floette	Florges	Shiny Stone
+Doublade	Aegislash	Dusk Stone	Blade Forme	
+Helioptile	Heliolisk	Sun Stone

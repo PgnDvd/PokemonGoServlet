@@ -1,0 +1,37 @@
+Magneton	Magnezone		in a Magnetic Field area
+Tyrogue	Hitmonlee	20	Attack > Defense
+Tyrogue	Hitmonchan	20	Attack < Defense
+Tyrogue	Hitmontop	20	Attack = Defense
+Lickitung	Lickilicky		after Rollout learned
+Happiny	Chansey		Daytime (holding Oval Stone)
+Tangela	Tangrowth		after AncientPower learned
+Mime Jr.	Mr. Mime		after Mimic learned
+Eevee	Leafeon		near a Mossy Rock
+Eevee	Glaceon		near an Icy Rock
+Eevee	Sylveon		maximum Affection in Pokémon Amie and knows a Fairy-type move
+Bonsly	Sudowoodo		after Mimic learned
+Aipom	Ambipom		after Double Hit learned
+Yanma	Yanmega		after AncientPower learned
+Gligar	Gliscor		Nighttime (holding Razor Fang)
+Sneasel	Weavile		Nighttime (holding Razor Claw)
+Piloswine	Mamoswine		after AncientPower learned
+Mantyke	Mantine		with Remoraid in party
+Wurmple	Silcoon	7	Random, based on personality
+Wurmple	Cascoon	7	Random, based on personality
+Nincada	Shedinja	20	with empty spot in party
+Nosepass	Probopass		in a Magnetic Field area
+Feebas	Milotic		Beauty
+Burmy	Mothim	20	Male
+Burmy	Wormadam	20	Plant Cloak, Female, outside
+Burmy	Wormadam	20	Sandy Cloak, Female, in caves
+Burmy	Wormadam	20	Female, in buildings
+Combee	Vespiquen	21	Female
+Karrablast	Escavalier		Trade with Shelmet
+Shelmet	Accelgor		Trade with Karrablast
+Pancham	Pangoro	32	with a Dark type Pokémon in party
+Spritzee	Aromatisse		Trade holding Sachet
+Swirlix	Slurpuff		Trade holding Whipped Dream
+Inkay	Malamar	30	holding 3DS upside down
+Tyrunt	Tyrantrum	39	Daytime
+Amaura	Aurorus	39	Nighttime
+Sliggoo	Goodra	55	during rain

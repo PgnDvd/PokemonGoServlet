@@ -1,0 +1,26 @@
+Poliwhirl	Politoed	King's Rock
+Kadabra	Alakazam	
+Machoke	Machamp	
+Graveler	Golem	
+Slowpoke	Slowking	King's Rock
+Haunter	Gengar	
+Onix	Steelix	Metal Coat
+Rhydon	Rhyperior	Protector
+Seadra	Kingdra	Dragon Scale
+Scyther	Scizor	Metal Coat
+Electabuzz	Electivire	Electrizer
+Magmar	Magmortar	Magmarizer
+Porygon	Porygon2	Up-Grade
+Porygon2	Porygon-Z	Dubious Disc
+Feebas	Milotic	Prism Scale
+Dusclops	Dusknoir	Reaper Cloth
+Clamperl	Huntail	Deepseatooth
+Clamperl	Gorebyss	Deepseascale
+Boldore	Gigalith	
+Gurdurr	Conkeldurr	
+Karrablast	Escavalier	Trade with Shelmet
+Shelmet	Accelgor	Trade with Karrablast
+Spritzee	Aromatisse	Trade holding Sachet
+Swirlix	Slurpuff	Trade holding Whipped Dream
+Phantump	Trevenant	
+Pumpkaboo	Gourgeist	Average Size
