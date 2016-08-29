@@ -11,12 +11,14 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 
 import pokemon.go.enums.PokemonType;
@@ -87,13 +89,19 @@ public class PokemonStatic {
 //	@ElementCollection
 //	@CollectionTable(name="Evolutions", joinColumns=@JoinColumn(name="id"))
 //	@Column(name="evolutions")
-//	private List<PokemonEvolution> evolutions;
+	
+//	@Transient
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "to")
+	private List<PokemonEvolution> evolutions;
 
 	@ElementCollection
 	@CollectionTable(name="Sprites", joinColumns=@JoinColumn(name="id"))
 	@Column(name="sprites")
 	private List<String> sprites;
 
+	public PokemonStatic(){
+		
+	}
 	public PokemonStatic(int id, String name, PokemonType type1, PokemonType type2, int baseHp, int baseAttack,
 			int baseDefense, int baseSpAtk, int baseSpDef, int baseSpeed, int maxMaxHp, int maxMaxAttack,
 			int maxMaxDefense, int maxMaxSpAtk, int maxMaxSpDef, int maxMaxSpeed, int minMaxHp, int minMaxAttack,
@@ -122,7 +130,7 @@ public class PokemonStatic {
 		this.minMaxSpDef = minMaxSpDef;
 		this.minMaxSpeed = minMaxSpeed;
 		this.catchRate = catchRate;
-//		this.evolutions = evolutions;
+		this.evolutions = evolutions;
 		this.sprites = sprites;
 	}
 
@@ -310,13 +318,13 @@ public class PokemonStatic {
 		this.catchRate = catchRate;
 	}
 
-//	public List<PokemonEvolution> getEvolutions() {
-//		return evolutions;
-//	}
-//
-//	public void setEvolutions(List<PokemonEvolution> evolutions) {
-//		this.evolutions = evolutions;
-//	}
+	public List<PokemonEvolution> getEvolutions() {
+		return evolutions;
+	}
+
+	public void setEvolutions(List<PokemonEvolution> evolutions) {
+		this.evolutions = evolutions;
+	}
 
 	public List<String> getSprites() {
 		return sprites;
@@ -335,7 +343,7 @@ public class PokemonStatic {
 				+ maxMaxSpDef + ", maxMaxSpeed=" + maxMaxSpeed + ", minMaxHp=" + minMaxHp + ", minMaxAttack="
 				+ minMaxAttack + ", minMaxDefense=" + minMaxDefense + ", minMaxSpAtk=" + minMaxSpAtk + ", minMaxSpDef="
 				+ minMaxSpDef + ", minMaxSpeed=" + minMaxSpeed + ", catchRate=" + catchRate +
-				//", evolutions="	+ evolutions + 
+				", evolutions="	+ evolutions + 
 				", sprites=" + sprites + "]";
 	}
 

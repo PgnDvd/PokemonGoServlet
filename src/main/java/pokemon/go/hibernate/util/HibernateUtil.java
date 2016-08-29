@@ -56,11 +56,7 @@ public class HibernateUtil {
 	}
 
 	public static void commit(Object obj){
-		if(session == null){
-			SessionFactory sessionFactory = getSessionAnnotationFactory();
-			System.out.println("opening session");
-			session = sessionFactory.openSession();
-		}
+		session = getSession();
 		try{
 			Transaction transaction = session.beginTransaction();
 			session.saveOrUpdate(obj);
@@ -70,6 +66,16 @@ public class HibernateUtil {
 			e.printStackTrace();
 		}
 	}
+
+	public static Session getSession() {
+		if(session == null){
+			SessionFactory sessionFactory = getSessionAnnotationFactory();
+			System.out.println("opening session");
+			session = sessionFactory.openSession();
+		}
+		return session;
+	}
+
 
 	public static void close(){
 		if(sessionAnnotationFactory!=null){
