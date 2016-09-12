@@ -38,7 +38,7 @@ import pokemon.go.loader.pokedb.evolutions.LoaderEvolutionsLevel;
 import pokemon.go.loader.pokedb.evolutions.LoaderEvolutionsOther;
 import pokemon.go.loader.pokedb.evolutions.LoaderEvolutionsStones;
 import pokemon.go.loader.pokedb.evolutions.LoaderEvolutionsTrade;
-import pokemon.go.model.PokemonMove;
+import pokemon.go.hibernate.model.PokemonMove;
 
 public class LoaderPokeDb {
 	public static void main(String[] args) throws IOException, URISyntaxException {

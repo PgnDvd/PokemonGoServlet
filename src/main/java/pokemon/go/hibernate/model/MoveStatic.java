@@ -1,12 +1,14 @@
 package pokemon.go.hibernate.model;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -43,6 +45,8 @@ public class MoveStatic {
 	@Column(name="prob")
 	private String prob;
 	
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "to")
+	private List<PokemonStatic> pokemons;
 
 //    @OneToMany(mappedBy = "PokemonStatic")
 //    private Set<PokemonMove> moves = new HashSet<PokemonMove>();

@@ -22,7 +22,7 @@ import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 
 import pokemon.go.enums.PokemonType;
-import pokemon.go.model.PokemonMove;
+import pokemon.go.hibernate.model.PokemonMove;
 
 @Entity
 //@Table(name="PokemonStatic", 
@@ -93,6 +93,9 @@ public class PokemonStatic {
 //	@Transient
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "to")
 	private List<PokemonEvolution> evolutions;
+
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "to")
+	private List<PokemonMove> moves;
 
 	@ElementCollection
 	@CollectionTable(name="Sprites", joinColumns=@JoinColumn(name="id"))

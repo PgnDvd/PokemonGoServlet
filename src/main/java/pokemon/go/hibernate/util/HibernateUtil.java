@@ -1,8 +1,14 @@
 package pokemon.go.hibernate.util;
 
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.Properties;
 
+import org.apache.commons.io.IOUtils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -13,7 +19,7 @@ import org.hibernate.service.ServiceRegistry;
 import pokemon.go.hibernate.model.MoveStatic;
 import pokemon.go.hibernate.model.PokemonEvolution;
 import pokemon.go.hibernate.model.PokemonStatic;
-import pokemon.go.model.PokemonMove;
+import pokemon.go.hibernate.model.PokemonMove;
 
 
 public class HibernateUtil {
@@ -82,4 +88,17 @@ public class HibernateUtil {
 			sessionAnnotationFactory.close();
 		}
 	}
+	
+	public static String getSourceAsString(String spec) throws MalformedURLException, IOException {
+		URL url = new URL(spec);
+
+		URLConnection urlConn = url.openConnection();
+		urlConn.setRequestProperty("User-Agent", "cheese");
+
+		InputStream is = urlConn.getInputStream();
+
+		String source = IOUtils.toString(is);
+		return source;
+	}
+
 }
