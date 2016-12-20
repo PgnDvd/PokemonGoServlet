@@ -1,4 +1,4 @@
-package pokemon.go.loader.pokeapico;
+package old.pokemon.go.loader.pokeapico;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,9 +15,9 @@ import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
 
+import old.pokemon.go.model.PokemonMove;
 import pokemon.go.enums.PokemonEnum;
 import pokemon.go.enums.PokemonType;
-import pokemon.go.model.PokemonMove;
 
 public class LoaderPokeApiCo {
 	public static void main(String[] args) throws IOException {

@@ -17,7 +17,7 @@ public class GetPokemon {
 	}
 
 	private static void getPokemon(Session session) {
-		PokemonStatic pokemon =  (PokemonStatic) session.get(PokemonStatic.class, 27);
+		PokemonStatic pokemon =  (PokemonStatic) session.get(PokemonStatic.class, 64);
 		System.out.println(pokemon);
 		System.out.println(pokemon.getName());
 		System.out.println(pokemon.getMoves());
