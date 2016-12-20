@@ -21,9 +21,18 @@ public class GetPokemon {
 		System.out.println(pokemon);
 		System.out.println(pokemon.getName());
 		System.out.println(pokemon.getMoves());
+		System.out.println(pokemon.getMoves().get(0).getMove());
 		System.out.println(pokemon.getEvolutions());
 	}
-	
+
+	private static void getMove(Session session) {
+		PokemonStatic pokemon =  (PokemonStatic) session.get(PokemonStatic.class, 27);
+		System.out.println(pokemon);
+		System.out.println(pokemon.getName());
+		System.out.println(pokemon.getMoves());
+		System.out.println(pokemon.getEvolutions());
+	}
+
 	private static void getAllMoves(Session session) {
 		List<MoveStatic> moves =  session.createCriteria(MoveStatic.class).list();
 		for(MoveStatic move:moves){

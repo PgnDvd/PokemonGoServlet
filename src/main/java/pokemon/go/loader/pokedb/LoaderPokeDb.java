@@ -47,7 +47,7 @@ public class LoaderPokeDb {
 		int evolutionId = 0;
 		for (PokemonEvolution evolution : allEvolutions) {
 			evolution.setId(evolutionId++);
-			HibernateUtil.commit(evolution);
+//			HibernateUtil.commit(evolution);
 		}
 
 		System.out.println("End committing evolutions");

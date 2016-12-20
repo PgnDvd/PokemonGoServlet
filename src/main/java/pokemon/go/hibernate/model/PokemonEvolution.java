@@ -15,7 +15,7 @@ import pokemon.go.enums.items.Stone;
 public class PokemonEvolution {
 
 	@Id
-//	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id", nullable=false, unique=true)
 	private int id;
 

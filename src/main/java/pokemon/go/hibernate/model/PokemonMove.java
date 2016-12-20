@@ -17,7 +17,7 @@ import pokemon.go.enums.MoveMechanism;
 @Entity
 public class PokemonMove implements Serializable{
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id", nullable=false, unique=true)
 	private int id;
 
@@ -61,6 +61,62 @@ public class PokemonMove implements Serializable{
 		this.gen = gen;
 		this.level = level;
 		this.tm = tm;
+		this.mechanism = mechanism;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public PokemonStatic getPokemon() {
+		return pokemon;
+	}
+
+	public void setPokemon(PokemonStatic pokemon) {
+		this.pokemon = pokemon;
+	}
+
+	public MoveStatic getMove() {
+		return move;
+	}
+
+	public void setMove(MoveStatic move) {
+		this.move = move;
+	}
+
+	public int getGen() {
+		return gen;
+	}
+
+	public void setGen(int gen) {
+		this.gen = gen;
+	}
+
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
+
+	public String getTm() {
+		return tm;
+	}
+
+	public void setTm(String tm) {
+		this.tm = tm;
+	}
+
+	public MoveMechanism getMechanism() {
+		return mechanism;
+	}
+
+	public void setMechanism(MoveMechanism mechanism) {
 		this.mechanism = mechanism;
 	}
 

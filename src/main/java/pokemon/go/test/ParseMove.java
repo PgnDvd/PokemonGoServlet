@@ -51,7 +51,7 @@ public class ParseMove {
 				//				MoveStatic moveStatic = (MoveStatic) HibernateUtil.getSession().get(MoveStatic.class, moveName);				
 				PokemonStatic pokemon =  (PokemonStatic) HibernateUtil.getSession().get(PokemonStatic.class, pokemonId);
 				System.out.println(pokemon);
-				PokemonMove pokemonMove = new PokemonMove(pokemon, new MoveStatic(), gen, Integer.parseInt(level), null, MoveMechanism.LEVEL);
+				PokemonMove pokemonMove = new PokemonMove(pokemon, list.get(0), gen, Integer.parseInt(level), null, MoveMechanism.LEVEL);
 
 				HibernateUtil.commit(pokemonMove);
 				System.out.println(move);
