@@ -148,6 +148,82 @@ public class MoveStatic implements Serializable{
 	}
 
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((acc == null) ? 0 : acc.hashCode());
+		result = prime * result + ((category == null) ? 0 : category.hashCode());
+		result = prime * result + ((description == null) ? 0 : description.hashCode());
+		result = prime * result + id;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((pokemons == null) ? 0 : pokemons.hashCode());
+		result = prime * result + ((power == null) ? 0 : power.hashCode());
+		result = prime * result + ((pp == null) ? 0 : pp.hashCode());
+		result = prime * result + ((prob == null) ? 0 : prob.hashCode());
+		result = prime * result + ((tm == null) ? 0 : tm.hashCode());
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		MoveStatic other = (MoveStatic) obj;
+		if (acc == null) {
+			if (other.acc != null)
+				return false;
+		} else if (!acc.equals(other.acc))
+			return false;
+		if (category != other.category)
+			return false;
+		if (description == null) {
+			if (other.description != null)
+				return false;
+		} else if (!description.equals(other.description))
+			return false;
+		if (id != other.id)
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (pokemons == null) {
+			if (other.pokemons != null)
+				return false;
+		} else if (!pokemons.equals(other.pokemons))
+			return false;
+		if (power == null) {
+			if (other.power != null)
+				return false;
+		} else if (!power.equals(other.power))
+			return false;
+		if (pp == null) {
+			if (other.pp != null)
+				return false;
+		} else if (!pp.equals(other.pp))
+			return false;
+		if (prob == null) {
+			if (other.prob != null)
+				return false;
+		} else if (!prob.equals(other.prob))
+			return false;
+		if (tm == null) {
+			if (other.tm != null)
+				return false;
+		} else if (!tm.equals(other.tm))
+			return false;
+		if (type != other.type)
+			return false;
+		return true;
+	}
+
+	@Override
 	public String toString() {
 		return "MoveStatic [id=" + id + ", name=" + name + ", type=" + type + ", category=" + category + ", power="
 				+ power + ", acc=" + acc + ", pp=" + pp + ", tm=" + tm + ", description=" + description + ", prob="

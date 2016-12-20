@@ -134,6 +134,55 @@ public class PokemonEvolution {
 	}
 
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((condition == null) ? 0 : condition.hashCode());
+		result = prime * result + from;
+		result = prime * result + id;
+		result = prime * result + level;
+		result = prime * result + ((stone == null) ? 0 : stone.hashCode());
+		result = prime * result + to;
+		result = prime * result + ((tradingItem == null) ? 0 : tradingItem.hashCode());
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PokemonEvolution other = (PokemonEvolution) obj;
+		if (condition == null) {
+			if (other.condition != null)
+				return false;
+		} else if (!condition.equals(other.condition))
+			return false;
+		if (from != other.from)
+			return false;
+		if (id != other.id)
+			return false;
+		if (level != other.level)
+			return false;
+		if (stone != other.stone)
+			return false;
+		if (to != other.to)
+			return false;
+		if (tradingItem == null) {
+			if (other.tradingItem != null)
+				return false;
+		} else if (!tradingItem.equals(other.tradingItem))
+			return false;
+		if (type != other.type)
+			return false;
+		return true;
+	}
+
+	@Override
 	public String toString() {
 		return "PokemonEvolution [id=" + id + ", from=" + from + ", to=" + to + ", type=" + type + ", level=" + level
 				+ ", stone=" + stone + ", tradingItem=" + tradingItem + ", condition=" + condition + "]";

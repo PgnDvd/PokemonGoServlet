@@ -339,6 +339,115 @@ public class PokemonStatic implements Serializable {
 	}
 
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + baseAttack;
+		result = prime * result + baseDefense;
+		result = prime * result + baseHp;
+		result = prime * result + baseSpAtk;
+		result = prime * result + baseSpDef;
+		result = prime * result + baseSpeed;
+		long temp;
+		temp = Double.doubleToLongBits(catchRate);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((evolutions == null) ? 0 : evolutions.hashCode());
+		result = prime * result + id;
+		result = prime * result + maxMaxAttack;
+		result = prime * result + maxMaxDefense;
+		result = prime * result + maxMaxHp;
+		result = prime * result + maxMaxSpAtk;
+		result = prime * result + maxMaxSpDef;
+		result = prime * result + maxMaxSpeed;
+		result = prime * result + minMaxAttack;
+		result = prime * result + minMaxDefense;
+		result = prime * result + minMaxHp;
+		result = prime * result + minMaxSpAtk;
+		result = prime * result + minMaxSpDef;
+		result = prime * result + minMaxSpeed;
+		result = prime * result + ((moves == null) ? 0 : moves.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((sprites == null) ? 0 : sprites.hashCode());
+		result = prime * result + ((type1 == null) ? 0 : type1.hashCode());
+		result = prime * result + ((type2 == null) ? 0 : type2.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PokemonStatic other = (PokemonStatic) obj;
+		if (baseAttack != other.baseAttack)
+			return false;
+		if (baseDefense != other.baseDefense)
+			return false;
+		if (baseHp != other.baseHp)
+			return false;
+		if (baseSpAtk != other.baseSpAtk)
+			return false;
+		if (baseSpDef != other.baseSpDef)
+			return false;
+		if (baseSpeed != other.baseSpeed)
+			return false;
+		if (Double.doubleToLongBits(catchRate) != Double.doubleToLongBits(other.catchRate))
+			return false;
+		if (evolutions == null) {
+			if (other.evolutions != null)
+				return false;
+		} else if (!evolutions.equals(other.evolutions))
+			return false;
+		if (id != other.id)
+			return false;
+		if (maxMaxAttack != other.maxMaxAttack)
+			return false;
+		if (maxMaxDefense != other.maxMaxDefense)
+			return false;
+		if (maxMaxHp != other.maxMaxHp)
+			return false;
+		if (maxMaxSpAtk != other.maxMaxSpAtk)
+			return false;
+		if (maxMaxSpDef != other.maxMaxSpDef)
+			return false;
+		if (maxMaxSpeed != other.maxMaxSpeed)
+			return false;
+		if (minMaxAttack != other.minMaxAttack)
+			return false;
+		if (minMaxDefense != other.minMaxDefense)
+			return false;
+		if (minMaxHp != other.minMaxHp)
+			return false;
+		if (minMaxSpAtk != other.minMaxSpAtk)
+			return false;
+		if (minMaxSpDef != other.minMaxSpDef)
+			return false;
+		if (minMaxSpeed != other.minMaxSpeed)
+			return false;
+		if (moves == null) {
+			if (other.moves != null)
+				return false;
+		} else if (!moves.equals(other.moves))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (sprites == null) {
+			if (other.sprites != null)
+				return false;
+		} else if (!sprites.equals(other.sprites))
+			return false;
+		if (type1 != other.type1)
+			return false;
+		if (type2 != other.type2)
+			return false;
+		return true;
+	}
+	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("PokemonStatic [id=");

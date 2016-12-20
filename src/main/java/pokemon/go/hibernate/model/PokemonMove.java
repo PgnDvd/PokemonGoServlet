@@ -121,6 +121,55 @@ public class PokemonMove implements Serializable{
 	}
 
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + gen;
+		result = prime * result + id;
+		result = prime * result + level;
+		result = prime * result + ((mechanism == null) ? 0 : mechanism.hashCode());
+		result = prime * result + ((move == null) ? 0 : move.hashCode());
+		result = prime * result + ((pokemon == null) ? 0 : pokemon.hashCode());
+		result = prime * result + ((tm == null) ? 0 : tm.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PokemonMove other = (PokemonMove) obj;
+		if (gen != other.gen)
+			return false;
+		if (id != other.id)
+			return false;
+		if (level != other.level)
+			return false;
+		if (mechanism != other.mechanism)
+			return false;
+		if (move == null) {
+			if (other.move != null)
+				return false;
+		} else if (!move.equals(other.move))
+			return false;
+		if (pokemon == null) {
+			if (other.pokemon != null)
+				return false;
+		} else if (!pokemon.equals(other.pokemon))
+			return false;
+		if (tm == null) {
+			if (other.tm != null)
+				return false;
+		} else if (!tm.equals(other.tm))
+			return false;
+		return true;
+	}
+
+	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("PokemonMove [id=");
