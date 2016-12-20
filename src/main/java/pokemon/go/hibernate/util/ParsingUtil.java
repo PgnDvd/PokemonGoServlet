@@ -56,7 +56,7 @@ public class ParsingUtil {
 		return strings;
 	}
 
-	private static Pair<String,Integer> middleString(String source, String start, String end, int startIndex) {
+	public static Pair<String,Integer> middleString(String source, String start, String end, int startIndex) {
 		try{
 			int beginIndex = source.indexOf(start, startIndex)+start.length();
 			if(beginIndex == start.length()-1){
@@ -70,6 +70,9 @@ public class ParsingUtil {
 			return new ImmutablePair<String, Integer>("", -1);
 		}
 	}
+	
+	
+	
 
 
 }

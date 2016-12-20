@@ -83,10 +83,10 @@ public class PokemonStatic implements Serializable {
 //	@Column(name="evolutions")
 	
 //	@Transient
-	@OneToMany(fetch = FetchType.EAGER)
+	@OneToMany(fetch = FetchType.LAZY)
 	private List<PokemonEvolution> evolutions;
 
-	@OneToMany(fetch = FetchType.EAGER)
+	@OneToMany(fetch = FetchType.LAZY)
 	private List<PokemonMove> moves;
 
 	@ElementCollection
@@ -319,6 +319,14 @@ public class PokemonStatic implements Serializable {
 
 	public void setEvolutions(List<PokemonEvolution> evolutions) {
 		this.evolutions = evolutions;
+	}
+
+	public List<PokemonMove> getMoves() {
+		return moves;
+	}
+
+	public void setMoves(List<PokemonMove> moves) {
+		this.moves = moves;
 	}
 
 	public List<String> getSprites() {

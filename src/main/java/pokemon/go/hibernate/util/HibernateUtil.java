@@ -37,8 +37,9 @@ public class HibernateUtil {
 			configuration.addAnnotatedClass(MoveStatic.class);
 			configuration.addAnnotatedClass(PokemonMove.class);
 			configuration.addAnnotatedClass(PokemonEvolution.class);
-			configuration.setProperty("hibernate.hbm2ddl.auto", "update");
-			configuration.setProperty("hibernate.show_sql", "false");
+//			configuration.setProperty("hibernate.hbm2ddl.auto", "update");
+			configuration.setProperty("hibernate.hbm2ddl.auto", "create");
+			configuration.setProperty("hibernate.show_sql", "true");
 			System.out.println("Hibernate Annotation Configuration loaded");
 
 			ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();

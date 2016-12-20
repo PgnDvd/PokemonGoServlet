@@ -46,12 +46,15 @@ public class MoveStatic implements Serializable{
 	@Column(name="prob")
 	private String prob;
 	
-	@OneToMany(fetch = FetchType.EAGER)
+	@OneToMany(fetch = FetchType.LAZY)
 	private List<PokemonStatic> pokemons;
 
 //    @OneToMany(mappedBy = "PokemonStatic")
 //    private Set<PokemonMove> moves = new HashSet<PokemonMove>();
     
+	public MoveStatic() {
+	}
+
 	public MoveStatic(int id, String name, MoveType type, MoveCategory category, String power, String acc, String pp,
 			String tm, String description, String prob) {
 		this.id = id;
@@ -145,7 +148,12 @@ public class MoveStatic implements Serializable{
 	public void setProb(String prob) {
 		this.prob = prob;
 	}
-	
 
-	
+	@Override
+	public String toString() {
+		return "MoveStatic [id=" + id + ", name=" + name + ", type=" + type + ", category=" + category + ", power="
+				+ power + ", acc=" + acc + ", pp=" + pp + ", tm=" + tm + ", description=" + description + ", prob="
+				+ prob + ", pokemons=" + pokemons + "]";
+	}
+
 }
