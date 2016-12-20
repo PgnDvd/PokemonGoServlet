@@ -33,6 +33,7 @@ import pokemon.go.enums.PokemonType;
 import pokemon.go.hibernate.model.PokemonEvolution;
 import pokemon.go.hibernate.model.PokemonStatic;
 import pokemon.go.hibernate.util.HibernateUtil;
+import pokemon.go.hibernate.util.ParsingUtil;
 import pokemon.go.loader.pokedb.evolutions.LoaderEvolutionsHappiness;
 import pokemon.go.loader.pokedb.evolutions.LoaderEvolutionsLevel;
 import pokemon.go.loader.pokedb.evolutions.LoaderEvolutionsOther;
@@ -98,7 +99,7 @@ public class LoaderPokeDb {
 
 
 			String url = "http://pokemondb.net/pokedex/"+pokemonId;
-			String source = getSourceAsString(url);
+			String source = ParsingUtil.getSourceAsString(url);
 
 
 
@@ -335,21 +336,10 @@ public class LoaderPokeDb {
 				"),");
 	}
 
-	private static String getSourceAsString(String spec) throws MalformedURLException, IOException {
-		URL url = new URL(spec);
-
-		URLConnection urlConn = url.openConnection();
-		urlConn.setRequestProperty("User-Agent", "cheese");
-
-		InputStream is = urlConn.getInputStream();
-
-		String source = IOUtils.toString(is);
-		return source;
-	}
 
 	private static List<String> getSpritesFromPokemonDb(int pokemonId) throws IOException {
 		String spec = "http://pokemondb.net/sprites/"+pokemonId;
-		String source = getSourceAsString(spec);
+		String source = ParsingUtil.getSourceAsString(spec);
 
 		List<String> sprites = new ArrayList<>();
 		//		System.out.println(source);
