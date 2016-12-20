@@ -10,5 +10,6 @@ public class GetPokemon {
 		Session session = HibernateUtil.getSession();
 		PokemonStatic pokemon =  (PokemonStatic) session.get(PokemonStatic.class, 30);
 		System.out.println(pokemon);
+		HibernateUtil.close();
 	}
 }

@@ -1,9 +1,7 @@
 package pokemon.go.hibernate.model;
 
-import java.util.HashSet;
+import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
@@ -12,22 +10,16 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Transient;
-import javax.persistence.UniqueConstraint;
 
 import pokemon.go.enums.PokemonType;
-import pokemon.go.hibernate.model.PokemonMove;
 
 @Entity
 //@Table(name="PokemonStatic", 
 //uniqueConstraints={@UniqueConstraint(columnNames={"id"})})
-public class PokemonStatic {
+public class PokemonStatic implements Serializable {
 
 	@Id
 	//@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -91,10 +83,10 @@ public class PokemonStatic {
 //	@Column(name="evolutions")
 	
 //	@Transient
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "to")
+	@OneToMany(fetch = FetchType.EAGER)
 	private List<PokemonEvolution> evolutions;
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "to")
+	@OneToMany(fetch = FetchType.EAGER)
 	private List<PokemonMove> moves;
 
 	@ElementCollection

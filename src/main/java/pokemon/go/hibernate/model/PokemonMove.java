@@ -1,20 +1,25 @@
 package pokemon.go.hibernate.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import pokemon.go.enums.MoveMechanism;
 
 @Entity
-public class PokemonMove {
+public class PokemonMove implements Serializable{
+	@Id
 	@ManyToOne
 	@JoinColumn(name = "pokemon_id")
 	private PokemonStatic pokemon;
 
+	@Id
 	@ManyToOne
 	@JoinColumn(name = "move_id")
 	private MoveStatic move;

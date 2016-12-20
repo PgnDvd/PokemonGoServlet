@@ -1,5 +1,6 @@
 package pokemon.go.hibernate.model;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -16,7 +17,7 @@ import pokemon.go.enums.MoveCategory;
 import pokemon.go.enums.MoveType;
 
 @Entity
-public class MoveStatic {
+public class MoveStatic implements Serializable{
 
 	@Id
 	//@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -45,7 +46,7 @@ public class MoveStatic {
 	@Column(name="prob")
 	private String prob;
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "to")
+	@OneToMany(fetch = FetchType.EAGER)
 	private List<PokemonStatic> pokemons;
 
 //    @OneToMany(mappedBy = "PokemonStatic")
