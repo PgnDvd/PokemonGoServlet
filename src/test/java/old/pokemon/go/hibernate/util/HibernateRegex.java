@@ -1,4 +1,4 @@
-package pokemon.go.hibernate.util;
+package old.pokemon.go.hibernate.util;
 
 public class HibernateRegex {
 //private (.*) (.*);

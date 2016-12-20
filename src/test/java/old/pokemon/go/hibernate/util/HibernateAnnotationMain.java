@@ -1,3 +1,4 @@
+package old.pokemon.go.hibernate.util;
 //package pokemon.go.hibernate.util;
 //
 //

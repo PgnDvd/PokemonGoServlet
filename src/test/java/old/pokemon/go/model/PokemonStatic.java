@@ -1,3 +1,4 @@
+package old.pokemon.go.model;
 //package pokemon.go.model;
 //
 //import java.util.List;

@@ -1,4 +1,4 @@
-package pokemon.go.loader.pokedb;
+package old.pokemon.go.loader.pokedb;
 
 import java.util.ArrayList;
 import java.util.Collection;

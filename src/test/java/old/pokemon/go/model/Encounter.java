@@ -1,4 +1,4 @@
-package pokemon.go.model;
+package old.pokemon.go.model;
 
 import java.util.Date;
 

@@ -1,3 +1,4 @@
+package old.pokemon.go.enums;
 //package pokemon.go.enums;
 //
 //import java.util.List;

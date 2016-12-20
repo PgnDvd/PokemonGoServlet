@@ -1,4 +1,8 @@
-package pokemon.go.enums;
+package old.pokemon.go.enums;
+
+import pokemon.go.enums.MoveCategory;
+import pokemon.go.enums.MoveEnum;
+import pokemon.go.enums.MoveType;
 
 public enum Move2 {
 	//replace space, "-", "'"
