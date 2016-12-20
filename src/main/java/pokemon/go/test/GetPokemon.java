@@ -21,7 +21,7 @@ public class GetPokemon {
 		System.out.println(pokemon);
 		System.out.println(pokemon.getName());
 		System.out.println(pokemon.getMoves());
-		System.out.println(pokemon.getMoves().get(0).getMove());
+//		System.out.println(pokemon.getMoves().get(0).getMove());
 		System.out.println(pokemon.getEvolutions());
 	}
 

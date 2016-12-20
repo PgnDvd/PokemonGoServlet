@@ -1,6 +1,7 @@
 package pokemon.go.loader.pokedb;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -46,8 +47,10 @@ public class LoaderPokeDb {
 
 		int evolutionId = 0;
 		for (PokemonEvolution evolution : allEvolutions) {
-			evolution.setId(evolutionId++);
-//			HibernateUtil.commit(evolution);
+			if(evolution.getFrom() > 26 && evolution.getFrom() < 35){
+				evolution.setId(evolutionId++);
+				HibernateUtil.commit(evolution);
+			}
 		}
 
 		System.out.println("End committing evolutions");
@@ -56,54 +59,57 @@ public class LoaderPokeDb {
 
 		// for(pokemonId = 1; pokemonId < 152; pokemonId++){
 		for (pokemonId = 26; pokemonId < 36; pokemonId++) {
-
-			String url = "http://pokemondb.net/pokedex/" + pokemonId;
-			String source = ParsingUtil.getSourceAsString(url);
-
-			PokemonStatic pokemon = new PokemonStatic();
-			pokemon.setId(pokemonId);
-
-			NameParser.parseName(pokemon, source);
-			TypesParser.parseTypes(pokemon, source);
-			CatchRateParser.parseCatchRate(pokemon, source);
-			SpriteParser.parseSprites(pokemon, pokemonId);
-			StatParser.parseStats(pokemon, source);
-
-			List<PokemonEvolution> evolutions = new ArrayList<>();
-			for (PokemonEvolution evolution : allEvolutions) {
-				if (pokemonId == evolution.getFrom()) {
-					evolutions.add(evolution);
-				}
-			}
-			pokemon.setEvolutions(evolutions);
-
-			Map<Integer, PokemonMove> moves = new HashMap<>();
-			Map<PokemonEnum, PokemonMove> breedingMoves = new HashMap<>();
-			List<PokemonMove> tmMoves = new ArrayList<>();
-			List<PokemonMove> tutoringMoves = new ArrayList<>();
-
-			// PokemonStatic pokemon = new PokemonStatic(name, pokemonId, type1,
-			// type2, evolutions, moves, breedingMoves, tmMoves, tutoringMoves,
-			// baseHp, baseAttack, baseDefense, baseSpAtk, baseSpDef, baseSpeed,
-			// maxMaxHp, maxMaxAttack, maxMaxDefense, maxMaxSpAtk, maxMaxSpDef,
-			// maxMaxSpeed, minMaxHp, minMaxAttack, minMaxDefense, minMaxSpAtk,
-			// minMaxSpDef, minMaxSpeed, sprites, catchRate);
-			
-			// PokemonStatic pokemon;
-			// pokemon = new PokemonStatic(pokemonId, name, type1, type2,
-			// baseHp, baseAttack, baseDefense, baseSpAtk, baseSpDef, baseSpeed,
-			// maxMaxHp, maxMaxAttack, maxMaxDefense, maxMaxSpAtk, maxMaxSpDef,
-			// maxMaxSpeed, minMaxHp, minMaxAttack, minMaxDefense, minMaxSpAtk,
-			// minMaxSpDef, minMaxSpeed, catchRate, evolutions, sprites);
-			
-			// System.out.println(pokemon);
-
-			// printAsEnum(sprites, pokemon);
-			System.out.println("Committing pokemon " + pokemon);
-			HibernateUtil.commit(pokemon);
+			parseCommitPokemon(pokemonId);
 		}
 		System.out.println("End committing pokemons");
 		HibernateUtil.close();
+	}
+
+	public static void parseCommitPokemon(int pokemonId) throws MalformedURLException, IOException {
+		String url = "http://pokemondb.net/pokedex/" + pokemonId;
+		String source = ParsingUtil.getSourceAsString(url);
+
+		PokemonStatic pokemon = new PokemonStatic();
+		pokemon.setId(pokemonId);
+
+		NameParser.parseName(pokemon, source);
+		TypesParser.parseTypes(pokemon, source);
+		CatchRateParser.parseCatchRate(pokemon, source);
+		SpriteParser.parseSprites(pokemon, pokemonId);
+		StatParser.parseStats(pokemon, source);
+
+		//			List<PokemonEvolution> evolutions = new ArrayList<>();
+		//			for (PokemonEvolution evolution : allEvolutions) {
+		//				if (pokemonId == evolution.getFrom()) {
+		//					evolutions.add(evolution);
+		//				}
+		//			}
+		//			pokemon.setEvolutions(evolutions);
+
+		Map<Integer, PokemonMove> moves = new HashMap<>();
+		Map<PokemonEnum, PokemonMove> breedingMoves = new HashMap<>();
+		List<PokemonMove> tmMoves = new ArrayList<>();
+		List<PokemonMove> tutoringMoves = new ArrayList<>();
+
+		// PokemonStatic pokemon = new PokemonStatic(name, pokemonId, type1,
+		// type2, evolutions, moves, breedingMoves, tmMoves, tutoringMoves,
+		// baseHp, baseAttack, baseDefense, baseSpAtk, baseSpDef, baseSpeed,
+		// maxMaxHp, maxMaxAttack, maxMaxDefense, maxMaxSpAtk, maxMaxSpDef,
+		// maxMaxSpeed, minMaxHp, minMaxAttack, minMaxDefense, minMaxSpAtk,
+		// minMaxSpDef, minMaxSpeed, sprites, catchRate);
+
+		// PokemonStatic pokemon;
+		// pokemon = new PokemonStatic(pokemonId, name, type1, type2,
+		// baseHp, baseAttack, baseDefense, baseSpAtk, baseSpDef, baseSpeed,
+		// maxMaxHp, maxMaxAttack, maxMaxDefense, maxMaxSpAtk, maxMaxSpDef,
+		// maxMaxSpeed, minMaxHp, minMaxAttack, minMaxDefense, minMaxSpAtk,
+		// minMaxSpDef, minMaxSpeed, catchRate, evolutions, sprites);
+
+		// System.out.println(pokemon);
+
+		// printAsEnum(sprites, pokemon);
+		System.out.println("Committing pokemon " + pokemon);
+		HibernateUtil.commit(pokemon);
 	}
 
 	private static void printAsEnum(List<String> sprites, PokemonStatic pokemon) {

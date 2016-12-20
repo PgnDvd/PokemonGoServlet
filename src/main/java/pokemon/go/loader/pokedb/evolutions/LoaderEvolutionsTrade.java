@@ -37,7 +37,7 @@ public class LoaderEvolutionsTrade {
 				tradingItem = items[2];
 			}
 			String condition = null;
-			PokemonEvolution evolution = new PokemonEvolution(from, to, EvolutionType.LEVEL, 0, null, tradingItem, condition);
+			PokemonEvolution evolution = new PokemonEvolution(from, to, EvolutionType.TRADE, 0, null, tradingItem, condition);
 			evolutions.add(evolution);		
 			
 			
