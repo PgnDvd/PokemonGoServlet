@@ -1,6 +1,7 @@
 package pokemon.go.hibernate.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -46,12 +47,9 @@ public class MoveStatic implements Serializable{
 	@Column(name="prob")
 	private String prob;
 	
-	@OneToMany(fetch = FetchType.LAZY)
-	private List<PokemonStatic> pokemons;
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "pokemon")
+	private List<PokemonMove> pokemons = new ArrayList<>();
 
-//    @OneToMany(mappedBy = "PokemonStatic")
-//    private Set<PokemonMove> moves = new HashSet<PokemonMove>();
-    
 	public MoveStatic() {
 	}
 

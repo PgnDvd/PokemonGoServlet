@@ -1,6 +1,7 @@
 package pokemon.go.hibernate.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CollectionTable;
@@ -83,11 +84,11 @@ public class PokemonStatic implements Serializable {
 //	@Column(name="evolutions")
 	
 //	@Transient
-	@OneToMany(fetch = FetchType.LAZY)
-	private List<PokemonEvolution> evolutions;
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "from")
+	private List<PokemonEvolution> evolutions = new ArrayList<>();
 
-	@OneToMany(fetch = FetchType.LAZY)
-	private List<PokemonMove> moves;
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "pokemon")
+	private List<PokemonMove> moves = new ArrayList<>();
 
 	@ElementCollection
 	@CollectionTable(name="Sprites", joinColumns=@JoinColumn(name="id"))
@@ -339,15 +340,61 @@ public class PokemonStatic implements Serializable {
 
 	@Override
 	public String toString() {
-		return "PokemonStatic [id=" + id + ", name=" + name + ", type1=" + type1 + ", type2=" + type2 + ", baseHp="
-				+ baseHp + ", baseAttack=" + baseAttack + ", baseDefense=" + baseDefense + ", baseSpAtk=" + baseSpAtk
-				+ ", baseSpDef=" + baseSpDef + ", baseSpeed=" + baseSpeed + ", maxMaxHp=" + maxMaxHp + ", maxMaxAttack="
-				+ maxMaxAttack + ", maxMaxDefense=" + maxMaxDefense + ", maxMaxSpAtk=" + maxMaxSpAtk + ", maxMaxSpDef="
-				+ maxMaxSpDef + ", maxMaxSpeed=" + maxMaxSpeed + ", minMaxHp=" + minMaxHp + ", minMaxAttack="
-				+ minMaxAttack + ", minMaxDefense=" + minMaxDefense + ", minMaxSpAtk=" + minMaxSpAtk + ", minMaxSpDef="
-				+ minMaxSpDef + ", minMaxSpeed=" + minMaxSpeed + ", catchRate=" + catchRate +
-				", evolutions="	+ evolutions + 
-				", sprites=" + sprites + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("PokemonStatic [id=");
+		builder.append(id);
+		builder.append(", name=");
+		builder.append(name);
+		builder.append(", type1=");
+		builder.append(type1);
+		builder.append(", type2=");
+		builder.append(type2);
+		builder.append(", baseHp=");
+		builder.append(baseHp);
+		builder.append(", baseAttack=");
+		builder.append(baseAttack);
+		builder.append(", baseDefense=");
+		builder.append(baseDefense);
+		builder.append(", baseSpAtk=");
+		builder.append(baseSpAtk);
+		builder.append(", baseSpDef=");
+		builder.append(baseSpDef);
+		builder.append(", baseSpeed=");
+		builder.append(baseSpeed);
+		builder.append(", maxMaxHp=");
+		builder.append(maxMaxHp);
+		builder.append(", maxMaxAttack=");
+		builder.append(maxMaxAttack);
+		builder.append(", maxMaxDefense=");
+		builder.append(maxMaxDefense);
+		builder.append(", maxMaxSpAtk=");
+		builder.append(maxMaxSpAtk);
+		builder.append(", maxMaxSpDef=");
+		builder.append(maxMaxSpDef);
+		builder.append(", maxMaxSpeed=");
+		builder.append(maxMaxSpeed);
+		builder.append(", minMaxHp=");
+		builder.append(minMaxHp);
+		builder.append(", minMaxAttack=");
+		builder.append(minMaxAttack);
+		builder.append(", minMaxDefense=");
+		builder.append(minMaxDefense);
+		builder.append(", minMaxSpAtk=");
+		builder.append(minMaxSpAtk);
+		builder.append(", minMaxSpDef=");
+		builder.append(minMaxSpDef);
+		builder.append(", minMaxSpeed=");
+		builder.append(minMaxSpeed);
+		builder.append(", catchRate=");
+		builder.append(catchRate);
+		builder.append(", evolutions=");
+		builder.append(evolutions);
+		builder.append(", moves=");
+		builder.append(moves);
+//		builder.append(", sprites=");
+//		builder.append(sprites);
+		builder.append("]");
+		return builder.toString();
 	}
 
 }

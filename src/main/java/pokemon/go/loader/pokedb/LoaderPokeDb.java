@@ -45,64 +45,74 @@ public class LoaderPokeDb {
 		System.out.println("Start committing evolutions");
 
 		int evolutionId = 0;
-		for(PokemonEvolution evolution: allEvolutions){
+		for (PokemonEvolution evolution : allEvolutions) {
 			evolution.setId(evolutionId++);
 			HibernateUtil.commit(evolution);
 		}
 
 		System.out.println("End committing evolutions");
 
-		System.in.read();
-
 		int pokemonId = 1;
 
-		//		for(pokemonId = 1; pokemonId < 152; pokemonId++){
-		for(pokemonId = 26; pokemonId < 36; pokemonId++){
+		// for(pokemonId = 1; pokemonId < 152; pokemonId++){
+		for (pokemonId = 26; pokemonId < 36; pokemonId++) {
 
-			String url = "http://pokemondb.net/pokedex/"+pokemonId;
+			String url = "http://pokemondb.net/pokedex/" + pokemonId;
 			String source = ParsingUtil.getSourceAsString(url);
 
 			PokemonStatic pokemon = new PokemonStatic();
 			pokemon.setId(pokemonId);
-			
+
 			NameParser.parseName(pokemon, source);
 			TypesParser.parseTypes(pokemon, source);
 			CatchRateParser.parseCatchRate(pokemon, source);
 			SpriteParser.parseSprites(pokemon, pokemonId);
 			StatParser.parseStats(pokemon, source);
-			
+
 			List<PokemonEvolution> evolutions = new ArrayList<>();
-			for(PokemonEvolution evolution : allEvolutions){
-				if(pokemonId == evolution.getFrom()){
+			for (PokemonEvolution evolution : allEvolutions) {
+				if (pokemonId == evolution.getFrom()) {
 					evolutions.add(evolution);
 				}
 			}
+			pokemon.setEvolutions(evolutions);
 
-
-			Map<Integer, PokemonMove> moves= new HashMap<>();
-			Map<PokemonEnum, PokemonMove> breedingMoves= new HashMap<>();
+			Map<Integer, PokemonMove> moves = new HashMap<>();
+			Map<PokemonEnum, PokemonMove> breedingMoves = new HashMap<>();
 			List<PokemonMove> tmMoves = new ArrayList<>();
 			List<PokemonMove> tutoringMoves = new ArrayList<>();
 
+			// PokemonStatic pokemon = new PokemonStatic(name, pokemonId, type1,
+			// type2, evolutions, moves, breedingMoves, tmMoves, tutoringMoves,
+			// baseHp, baseAttack, baseDefense, baseSpAtk, baseSpDef, baseSpeed,
+			// maxMaxHp, maxMaxAttack, maxMaxDefense, maxMaxSpAtk, maxMaxSpDef,
+			// maxMaxSpeed, minMaxHp, minMaxAttack, minMaxDefense, minMaxSpAtk,
+			// minMaxSpDef, minMaxSpeed, sprites, catchRate);
+			
+			// PokemonStatic pokemon;
+			// pokemon = new PokemonStatic(pokemonId, name, type1, type2,
+			// baseHp, baseAttack, baseDefense, baseSpAtk, baseSpDef, baseSpeed,
+			// maxMaxHp, maxMaxAttack, maxMaxDefense, maxMaxSpAtk, maxMaxSpDef,
+			// maxMaxSpeed, minMaxHp, minMaxAttack, minMaxDefense, minMaxSpAtk,
+			// minMaxSpDef, minMaxSpeed, catchRate, evolutions, sprites);
+			
+			// System.out.println(pokemon);
 
-
-			//PokemonStatic pokemon = new PokemonStatic(name, pokemonId, type1, type2, evolutions, moves, breedingMoves, tmMoves, tutoringMoves, baseHp, baseAttack, baseDefense, baseSpAtk, baseSpDef, baseSpeed, maxMaxHp, maxMaxAttack, maxMaxDefense, maxMaxSpAtk, maxMaxSpDef, maxMaxSpeed, minMaxHp, minMaxAttack, minMaxDefense, minMaxSpAtk, minMaxSpDef, minMaxSpeed, sprites, catchRate);
-			//			PokemonStatic pokemon;
-			//			pokemon = new PokemonStatic(pokemonId, name, type1, type2, baseHp, baseAttack, baseDefense, baseSpAtk, baseSpDef, baseSpeed, maxMaxHp, maxMaxAttack, maxMaxDefense, maxMaxSpAtk, maxMaxSpDef, maxMaxSpeed, minMaxHp, minMaxAttack, minMaxDefense, minMaxSpAtk, minMaxSpDef, minMaxSpeed, catchRate, evolutions, sprites);
-			//						System.out.println(pokemon);
-
-			//printAsEnum(sprites, pokemon);
+			// printAsEnum(sprites, pokemon);
+			System.out.println("Committing pokemon " + pokemon);
 			HibernateUtil.commit(pokemon);
 		}
+		System.out.println("End committing pokemons");
 		HibernateUtil.close();
 	}
 
 	private static void printAsEnum(List<String> sprites, PokemonStatic pokemon) {
 		String spritesInEnum = "Arrays.asList(";
-		for(String sprite : sprites){
-			spritesInEnum += "\""+sprite+"\","; 
+		for (String sprite : sprites) {
+			spritesInEnum += "\"" + sprite + "\",";
 		}
-		spritesInEnum = spritesInEnum.substring(0, spritesInEnum.length()-1)+")";
+		spritesInEnum = spritesInEnum.substring(0, spritesInEnum.length() - 1) + ")";
+		// @formatter:off
 		System.out.println(pokemon.getName().toUpperCase()+"("+pokemon.getId()+","+
 				"\""+pokemon.getName()+"\""+","+
 				"PokemonType."+pokemon.getType1()+","+
@@ -128,8 +138,6 @@ public class LoaderPokeDb {
 				pokemon.getCatchRate()+","+
 				spritesInEnum+
 				"),");
+		// @formatter:on
 	}
-
-
-
 }
