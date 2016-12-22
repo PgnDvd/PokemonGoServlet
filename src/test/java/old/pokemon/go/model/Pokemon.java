@@ -2,7 +2,7 @@ package old.pokemon.go.model;
 
 import java.util.UUID;
 
-import pokemon.go.enums.PokemonEnum;
+import pokemon.go.db.enums.PokemonEnum;
 
 public class Pokemon {
 	private UUID uuid;

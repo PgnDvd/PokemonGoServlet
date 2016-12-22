@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.hibernate.Session;
 
-import pokemon.go.hibernate.model.MoveStatic;
-import pokemon.go.hibernate.model.PokemonStatic;
-import pokemon.go.hibernate.util.HibernateUtil;
+import pokemon.go.db.hibernate.model.MoveStatic;
+import pokemon.go.db.hibernate.model.PokemonStatic;
+import pokemon.go.db.hibernate.util.HibernateUtil;
 
 public class GetPokemon {
 	public static void main(String[] args) {

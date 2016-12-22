@@ -1,11 +1,9 @@
-package old.pokemon.go.enums;
+package pokemon.go.db.enums;
 
-import pokemon.go.db.enums.MoveCategory;
-import pokemon.go.db.enums.MoveEnum;
-import pokemon.go.db.enums.MoveType;
-
-public enum Move2 {
+public enum MoveEnum {
 	//replace space, "-", "'"
+	STRUGGLE("Struggle","NORMAL","Physical","50","100","-","","Only usable when all PP are gone. Hurts the user.","-"),
+
 	ABSORB("Absorb","GRASS","Special","20","100","25","","User recovers half the HP inflicted on opponent.","-"),
 	ACID("Acid","POISON","Special","40","100","30","","May lower opponent's Special Defense.","10"),
 	ACID_ARMOR("Acid Armor","POISON","Status","-","-","20","","Sharply raises user's Defense.","-"),
@@ -534,7 +532,6 @@ public enum Move2 {
 	STORM_THROW("Storm Throw","FIGHTING","Physical","60","100","10","","Always results in a critical hit.","-"),
 	STRENGTH("Strength","NORMAL","Physical","80","100","15","HM04","","-"),
 	STRING_SHOT("String Shot","BUG","Status","-","95","40","","Sharply lowers opponent's Speed.","-"),
-	STRUGGLE("Struggle","NORMAL","Physical","50","100","1000","","Only usable when all PP are gone. Hurts the user.","-"),
 	STRUGGLE_BUG("Struggle Bug","BUG","Special","50","100","20","TM76","Lowers opponent's Special Attack.","100"),
 	STUN_SPORE("Stun Spore","GRASS","Status","-","75","30","","Paralyzes opponent.","-"),
 	SUBMISSION("Submission","FIGHTING","Physical","80","80","25","","User receives recoil damage.","-"),
@@ -631,14 +628,15 @@ public enum Move2 {
 	private String name;
 	private MoveType type;
 	private MoveCategory category;
-	private int power;
-	private int acc;
-	private int pp;
+	private String power;
+	private String acc;
+	private String pp;
 	private String tm;
 	private String effect;
-	private int prob;
+	private String prob;
 
-	private Move2(String name, MoveType type, MoveCategory category, int power, int acc, int pp, String tm,
+	/*
+	private Move(String name, MoveType type, MoveCategory category, int power, int acc, int pp, String tm,
 			String effect, int prob) {
 		this.name = name;
 		this.type = type;
@@ -651,7 +649,7 @@ public enum Move2 {
 		this.prob = prob;
 	}
 
-	private Move2 (String name, String type, String category, String power, String acc, String pp, String tm, String effect, String prob){
+	private Move (String name, String type, String category, String power, String acc, String pp, String tm, String effect, String prob){
 		this.name = name;
 		this.type = MoveType.valueOf(type);
 		this.category = MoveCategory.valueOf(category);
@@ -677,10 +675,119 @@ public enum Move2 {
 			this.prob = Integer.parseInt(prob);
 		}
 	}
+*/
+	private MoveEnum(String name, String type, String category, String power, String acc, String pp, String tm,
+			String effect, String prob) {
+		this.name = name;
+		this.type = MoveType.valueOf(type);
+		this.category = MoveCategory.valueOf(category);
+		this.power = power;
+		this.acc = acc;
+		this.pp = pp;
+		this.tm = tm;
+		this.effect = effect;
+		this.prob = prob;
+	}
+	
 
 	public static void main(String[] args) {
 		for(MoveEnum move: MoveEnum.values()){
 		}
 	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public MoveType getType() {
+		return type;
+	}
+
+
+	public void setType(MoveType type) {
+		this.type = type;
+	}
+
+
+	public MoveCategory getCategory() {
+		return category;
+	}
+
+
+	public void setCategory(MoveCategory category) {
+		this.category = category;
+	}
+
+
+	public String getPower() {
+		return power;
+	}
+
+
+	public void setPower(String power) {
+		this.power = power;
+	}
+
+
+	public String getAcc() {
+		return acc;
+	}
+
+
+	public void setAcc(String acc) {
+		this.acc = acc;
+	}
+
+
+	public String getPp() {
+		return pp;
+	}
+
+
+	public void setPp(String pp) {
+		this.pp = pp;
+	}
+
+
+	public String getTm() {
+		return tm;
+	}
+
+
+	public void setTm(String tm) {
+		this.tm = tm;
+	}
+
+
+	public String getEffect() {
+		return effect;
+	}
+
+
+	public void setEffect(String effect) {
+		this.effect = effect;
+	}
+
+
+	public String getProb() {
+		return prob;
+	}
+
+
+	public void setProb(String prob) {
+		this.prob = prob;
+	}
+	
+	public int getId(){
+		return this.ordinal();
+	}
+
 
 }

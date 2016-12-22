@@ -10,7 +10,7 @@ import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import pokemon.go.enums.PokemonEnum;
+import pokemon.go.db.enums.PokemonEnum;
 
 public class EvolutionsLegacy {
 	public static void main(String[] args) {

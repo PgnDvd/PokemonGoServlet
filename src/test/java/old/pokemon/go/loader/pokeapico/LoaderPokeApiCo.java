@@ -16,8 +16,8 @@ import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
 
 import old.pokemon.go.model.PokemonMove;
-import pokemon.go.enums.PokemonEnum;
-import pokemon.go.enums.PokemonType;
+import pokemon.go.db.enums.PokemonEnum;
+import pokemon.go.db.enums.PokemonType;
 
 public class LoaderPokeApiCo {
 	public static void main(String[] args) throws IOException {

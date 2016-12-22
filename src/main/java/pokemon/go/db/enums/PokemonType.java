@@ -1,0 +1,5 @@
+package pokemon.go.db.enums;
+
+public enum PokemonType {
+	VOID, GRASS, POISON, FIRE, DRAGON, GROUND, ROCK, FAIRY, FLYING, PSYCHIC, DARK, GHOST, WATER, BUG, NORMAL, ELECTRIC,FIGHTING,STEEL,ICE;
+}
