@@ -15,6 +15,7 @@ import pokemon.go.loader.pokedb.evolutions.LoaderEvolutionsTrade;
 
 public class AllLoader {
 	public static final int pokemonCap = 152;
+
 	public static void main(String[] args) throws IOException, URISyntaxException {
 		savePokemons();
 		saveMoves(args);
@@ -25,7 +26,7 @@ public class AllLoader {
 
 	private static void savePokemonMoves() throws MalformedURLException, IOException {
 		System.out.println("Start parsing pokemon moves rel");
-		for(int pokemonId = 1; pokemonId < pokemonCap; pokemonId++){
+		for (int pokemonId = 1; pokemonId < pokemonCap; pokemonId++) {
 			PokemonMovesRelLoader.commitPokemonMovesRel(pokemonId, 1);
 		}
 		System.out.println("End committing pokemon moves rel");
@@ -44,9 +45,9 @@ public class AllLoader {
 
 		int evolutionId = 0;
 		for (PokemonEvolution evolution : allEvolutions) {
-			if(evolution.getTo()<pokemonCap && evolution.getFrom()<pokemonCap){
-				System.out.println("Committing evolution "+ evolution);
-				//				evolution.setId(evolutionId++);
+			if (evolution.getTo() < pokemonCap && evolution.getFrom() < pokemonCap) {
+				System.out.println("Committing evolution " + evolution);
+				// evolution.setId(evolutionId++);
 				HibernateUtil.commit(evolution);
 			}
 		}
@@ -62,7 +63,7 @@ public class AllLoader {
 
 	private static void savePokemons() throws MalformedURLException, IOException {
 		System.out.println("Start parsing pokemon");
-		for(int pokemonId = 1; pokemonId < pokemonCap; pokemonId++){
+		for (int pokemonId = 1; pokemonId < pokemonCap; pokemonId++) {
 			LoaderPokeDb.parseCommitPokemon(pokemonId);
 		}
 		System.out.println("End committing pokemon");

@@ -7,15 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.tuple.ImmutablePair;
-import org.apache.commons.lang3.tuple.Pair;
-
 import pokemon.go.enums.PokemonEnum;
-import pokemon.go.enums.PokemonType;
 import pokemon.go.hibernate.model.PokemonEvolution;
 import pokemon.go.hibernate.model.PokemonMove;
 import pokemon.go.hibernate.model.PokemonStatic;
@@ -47,7 +39,7 @@ public class LoaderPokeDb {
 
 		int evolutionId = 0;
 		for (PokemonEvolution evolution : allEvolutions) {
-			if(evolution.getFrom() > 26 && evolution.getFrom() < 35){
+			if (evolution.getFrom() > 26 && evolution.getFrom() < 35) {
 				evolution.setId(evolutionId++);
 				HibernateUtil.commit(evolution);
 			}
@@ -78,13 +70,13 @@ public class LoaderPokeDb {
 		SpriteParser.parseSprites(pokemon, pokemonId);
 		StatParser.parseStats(pokemon, source);
 
-		//			List<PokemonEvolution> evolutions = new ArrayList<>();
-		//			for (PokemonEvolution evolution : allEvolutions) {
-		//				if (pokemonId == evolution.getFrom()) {
-		//					evolutions.add(evolution);
-		//				}
-		//			}
-		//			pokemon.setEvolutions(evolutions);
+		// List<PokemonEvolution> evolutions = new ArrayList<>();
+		// for (PokemonEvolution evolution : allEvolutions) {
+		// if (pokemonId == evolution.getFrom()) {
+		// evolutions.add(evolution);
+		// }
+		// }
+		// pokemon.setEvolutions(evolutions);
 
 		Map<Integer, PokemonMove> moves = new HashMap<>();
 		Map<PokemonEnum, PokemonMove> breedingMoves = new HashMap<>();
