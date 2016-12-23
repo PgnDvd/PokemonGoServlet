@@ -1,4 +1,4 @@
-package pokemon.go.db.loader.pokedb;
+package pokemon.go.db.loader.pokedb.loaders;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -14,11 +14,11 @@ import pokemon.go.db.hibernate.model.PokemonMove;
 import pokemon.go.db.hibernate.model.PokemonStatic;
 import pokemon.go.db.hibernate.util.HibernateUtil;
 import pokemon.go.db.hibernate.util.ParsingUtil;
-import pokemon.go.db.loader.pokedb.evolutions.LoaderEvolutionsHappiness;
-import pokemon.go.db.loader.pokedb.evolutions.LoaderEvolutionsLevel;
-import pokemon.go.db.loader.pokedb.evolutions.LoaderEvolutionsOther;
-import pokemon.go.db.loader.pokedb.evolutions.LoaderEvolutionsStones;
-import pokemon.go.db.loader.pokedb.evolutions.LoaderEvolutionsTrade;
+import pokemon.go.db.loader.pokedb.loaders.evolutions.LoaderEvolutionsHappiness;
+import pokemon.go.db.loader.pokedb.loaders.evolutions.LoaderEvolutionsLevel;
+import pokemon.go.db.loader.pokedb.loaders.evolutions.LoaderEvolutionsOther;
+import pokemon.go.db.loader.pokedb.loaders.evolutions.LoaderEvolutionsStones;
+import pokemon.go.db.loader.pokedb.loaders.evolutions.LoaderEvolutionsTrade;
 import pokemon.go.db.loader.pokedb.parsers.CatchRateParser;
 import pokemon.go.db.loader.pokedb.parsers.NameParser;
 import pokemon.go.db.loader.pokedb.parsers.SpriteParser;

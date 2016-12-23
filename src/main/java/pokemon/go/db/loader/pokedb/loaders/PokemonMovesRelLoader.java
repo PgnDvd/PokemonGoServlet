@@ -1,4 +1,4 @@
-package pokemon.go.db.loader.pokedb;
+package pokemon.go.db.loader.pokedb.loaders;
 
 import java.io.IOException;
 import java.net.MalformedURLException;

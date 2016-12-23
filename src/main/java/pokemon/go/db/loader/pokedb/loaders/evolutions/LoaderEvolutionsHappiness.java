@@ -1,4 +1,4 @@
-package pokemon.go.db.loader.pokedb.evolutions;
+package pokemon.go.db.loader.pokedb.loaders.evolutions;
 
 import java.io.File;
 import java.io.IOException;

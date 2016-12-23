@@ -1,4 +1,4 @@
-package pokemon.go.db.loader.pokedb.evolutions;
+package pokemon.go.db.loader.pokedb.loaders.evolutions;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,9 +12,10 @@ import java.util.List;
 
 import pokemon.go.db.enums.EvolutionType;
 import pokemon.go.db.enums.PokemonEnum;
+import pokemon.go.db.enums.items.Stone;
 import pokemon.go.db.hibernate.model.PokemonEvolution;
 
-public class LoaderEvolutionsLevel {
+public class LoaderEvolutionsStones {
 	public static void main(String[] args) throws URISyntaxException, IOException {
 		List<PokemonEvolution> evolutions = getEvolutions();
 		for(PokemonEvolution evolution: evolutions){
@@ -23,7 +24,7 @@ public class LoaderEvolutionsLevel {
 	}
 
 	public static List<PokemonEvolution> getEvolutions() throws URISyntaxException, IOException {
-        File file = new File("src/main/resources/evolutions/evoLevel.txt");
+        File file = new File("src/main/resources/evolutions/evoStones.txt");
 		List<String> source = Files.readAllLines(file.toPath());
 		List<PokemonEvolution> evolutions = new ArrayList<>();
 		for(String line : source){
@@ -31,15 +32,15 @@ public class LoaderEvolutionsLevel {
 			String name = items[0].toLowerCase().replace("nidoran♀", "nidoranF").replace("nidoran♂", "nidoranM");
 			int from = PokemonEnum.valueOf(name).getId();
 			int to = PokemonEnum.valueOf(items[1].toLowerCase()).getId();
-			int level = Integer.parseInt(items[2]);
+			
+			Stone stone = Stone.valueOf(items[2].replace(" ","").replace("Stone", "stone"));
 			String condition = null;
-			if(items.length == 4){
+			if(items.length==4){
 				condition = items[3];
 			}
-			PokemonEvolution evolution = new PokemonEvolution(from, to, EvolutionType.LEVEL, level, null, null, condition);
-			evolutions.add(evolution);	
-			
-			
+			PokemonEvolution evolution = new PokemonEvolution(from, to, EvolutionType.STONE, 0, stone, null, condition);
+			evolutions.add(evolution);			
+
 
 			if(items.length > 4){
 				System.out.println(line);

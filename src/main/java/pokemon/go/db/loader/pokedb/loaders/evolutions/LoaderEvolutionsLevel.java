@@ -1,4 +1,4 @@
-package pokemon.go.db.loader.pokedb.evolutions;
+package pokemon.go.db.loader.pokedb.loaders.evolutions;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,7 +14,7 @@ import pokemon.go.db.enums.EvolutionType;
 import pokemon.go.db.enums.PokemonEnum;
 import pokemon.go.db.hibernate.model.PokemonEvolution;
 
-public class LoaderEvolutionsTrade {
+public class LoaderEvolutionsLevel {
 	public static void main(String[] args) throws URISyntaxException, IOException {
 		List<PokemonEvolution> evolutions = getEvolutions();
 		for(PokemonEvolution evolution: evolutions){
@@ -23,26 +23,25 @@ public class LoaderEvolutionsTrade {
 	}
 
 	public static List<PokemonEvolution> getEvolutions() throws URISyntaxException, IOException {
-        File file = new File("src/main/resources/evolutions/evoTrade.txt");
+        File file = new File("src/main/resources/evolutions/evoLevel.txt");
 		List<String> source = Files.readAllLines(file.toPath());
 		List<PokemonEvolution> evolutions = new ArrayList<>();
 		for(String line : source){
 			String[] items = line.split("\t");
-			String name = items[0].toLowerCase().replace("-", "").replace("nidoran♂", "nidoranM");
+			String name = items[0].toLowerCase().replace("nidoran♀", "nidoranF").replace("nidoran♂", "nidoranM");
 			int from = PokemonEnum.valueOf(name).getId();
-			String name2 = items[1].toLowerCase().replace("-", "").replace("nidoran♂", "nidoranM");
-			int to = PokemonEnum.valueOf(name2).getId();
-			String tradingItem = null;
-			if(items.length == 3){
-				tradingItem = items[2];
-			}
+			int to = PokemonEnum.valueOf(items[1].toLowerCase()).getId();
+			int level = Integer.parseInt(items[2]);
 			String condition = null;
-			PokemonEvolution evolution = new PokemonEvolution(from, to, EvolutionType.TRADE, 0, null, tradingItem, condition);
-			evolutions.add(evolution);		
+			if(items.length == 4){
+				condition = items[3];
+			}
+			PokemonEvolution evolution = new PokemonEvolution(from, to, EvolutionType.LEVEL, level, null, null, condition);
+			evolutions.add(evolution);	
 			
 			
 
-			if(items.length > 3){
+			if(items.length > 4){
 				System.out.println(line);
 				for(String item: items){
 					System.out.println(item);

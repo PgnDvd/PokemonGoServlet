@@ -1,4 +1,4 @@
-package pokemon.go.db.loader.pokedb;
+package pokemon.go.db.loader.pokedb.loaders;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -7,11 +7,11 @@ import java.util.List;
 
 import pokemon.go.db.hibernate.model.PokemonEvolution;
 import pokemon.go.db.hibernate.util.HibernateUtil;
-import pokemon.go.db.loader.pokedb.evolutions.LoaderEvolutionsHappiness;
-import pokemon.go.db.loader.pokedb.evolutions.LoaderEvolutionsLevel;
-import pokemon.go.db.loader.pokedb.evolutions.LoaderEvolutionsOther;
-import pokemon.go.db.loader.pokedb.evolutions.LoaderEvolutionsStones;
-import pokemon.go.db.loader.pokedb.evolutions.LoaderEvolutionsTrade;
+import pokemon.go.db.loader.pokedb.loaders.evolutions.LoaderEvolutionsHappiness;
+import pokemon.go.db.loader.pokedb.loaders.evolutions.LoaderEvolutionsLevel;
+import pokemon.go.db.loader.pokedb.loaders.evolutions.LoaderEvolutionsOther;
+import pokemon.go.db.loader.pokedb.loaders.evolutions.LoaderEvolutionsStones;
+import pokemon.go.db.loader.pokedb.loaders.evolutions.LoaderEvolutionsTrade;
 
 public class AllLoader {
 	public static final int pokemonCap = 152;

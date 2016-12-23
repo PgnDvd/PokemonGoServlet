@@ -1,4 +1,4 @@
-package pokemon.go.db.loader.pokedb.evolutions;
+package pokemon.go.db.loader.pokedb.loaders.evolutions;
 
 import pokemon.go.db.hibernate.model.PokemonEvolution;
 import pokemon.go.db.hibernate.util.HibernateUtil;

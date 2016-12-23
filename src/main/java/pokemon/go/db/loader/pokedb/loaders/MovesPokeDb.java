@@ -1,4 +1,4 @@
-package pokemon.go.db.loader.pokedb;
+package pokemon.go.db.loader.pokedb.loaders;
 
 import pokemon.go.db.enums.MoveEnum;
 import pokemon.go.db.hibernate.model.MoveStatic;
