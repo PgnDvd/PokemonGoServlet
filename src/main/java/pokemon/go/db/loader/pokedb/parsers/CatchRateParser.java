@@ -1,8 +1,5 @@
 package pokemon.go.db.loader.pokedb.parsers;
 
-import java.util.List;
-
-import pokemon.go.db.enums.PokemonType;
 import pokemon.go.db.hibernate.model.PokemonStatic;
 import pokemon.go.db.hibernate.util.ParsingUtil;
 

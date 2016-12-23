@@ -6,8 +6,6 @@ import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.Properties;
-
 import org.apache.commons.io.IOUtils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -20,6 +18,8 @@ import pokemon.go.db.hibernate.model.MoveStatic;
 import pokemon.go.db.hibernate.model.PokemonEvolution;
 import pokemon.go.db.hibernate.model.PokemonMove;
 import pokemon.go.db.hibernate.model.PokemonStatic;
+import pokemon.go.db.hibernate.model.user.TrainedPokemon;
+import pokemon.go.db.hibernate.model.user.Trainer;
 
 
 public class HibernateUtil {
@@ -37,6 +37,8 @@ public class HibernateUtil {
 			configuration.addAnnotatedClass(MoveStatic.class);
 			configuration.addAnnotatedClass(PokemonMove.class);
 			configuration.addAnnotatedClass(PokemonEvolution.class);
+			configuration.addAnnotatedClass(Trainer.class);
+			configuration.addAnnotatedClass(TrainedPokemon.class);
 			configuration.setProperty("hibernate.hbm2ddl.auto", "update");
 //			configuration.setProperty("hibernate.hbm2ddl.auto", "create");
 			configuration.setProperty("hibernate.show_sql", "false");
